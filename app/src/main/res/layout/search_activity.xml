@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--layout main toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding_content">
+
+        <!--edit text for search-->
+        <EditText
+            android:id="@+id/search_edSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bacground_layout"
+            android:layout_toLeftOf="@+id/search_close"
+            android:hint="@string/hint_search"
+            android:paddingLeft="5dp"/>
+
+        <!--clear text button-->
+        <ImageView
+            android:id="@+id/search_clear"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:srcCompat="@drawable/ic_close_grey_700_24dp"
+            android:layout_toLeftOf="@+id/search_close"
+            android:layout_centerVertical="true"/>
+
+        <!--button for close-->
+        <TextView
+            android:id="@+id/search_close"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text="@string/close"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+    <!--list recyclerview-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

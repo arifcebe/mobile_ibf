@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Main.TextTitle" parent="Base.TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
 
 
+    <dimen name="main_title">20sp</dimen>
 </resources>
