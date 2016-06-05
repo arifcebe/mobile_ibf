@@ -7,6 +7,6 @@
     <color name="background_tab">#FFFFFF</color>
     <color name="bacground_layout">#FFFFFF</color>
     <color name="news_title">#000000</color>
-    <color name="news_kategori">#000000</color>
+    <color name="news_kategori">#900e10</color>
     <color name="text_main">#000000</color>
 </resources>

@@ -3,6 +3,7 @@ package id.ilmuberbagi.mobileapp.view;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,14 +22,15 @@ import butterknife.ButterKnife;
 import id.ilmuberbagi.mobileapp.R;
 import id.ilmuberbagi.mobileapp.adapter.NewsAdapter;
 import id.ilmuberbagi.mobileapp.model.NewsModel;
+import id.ilmuberbagi.mobileapp.utils.CustomRecyclerview;
 
 /**
  * Created by arifcebe on 5/28/16.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements NewsAdapter.OnItemClickListener {
 
     @BindView(R.id.news_recyclerview)
-    RecyclerView recyclerView;
+    CustomRecyclerview recyclerView;
     @BindView(R.id.news_recyclerview_header)
     RecyclerViewHeader recyclerViewHeader;
     @BindView(R.id.news_header_image)
@@ -45,8 +47,10 @@ public class NewsFragment extends Fragment {
 
         adapter = new NewsAdapter(getActivity(),list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter.setOnItemClickListener(this);
         recyclerView.setAdapter(adapter);
         recyclerViewHeader.attachTo(recyclerView);
+        recyclerView.scheduleLayoutAnimation();
 
         Glide.with(this)
                 .load("https://2.bp.blogspot.com/-t9YAB7aQXWk/Vt7soe8evDI/AAAAAAAAADk/sN6Jhy9WtkA/s320/ardi-kick-andy-285x300.jpg")
@@ -63,5 +67,12 @@ public class NewsFragment extends Fragment {
         }
 
         return view;
+    }
+
+
+    @Override
+    public void onItemClick(View view, NewsModel model) {
+        NewsDetailActivity.animateNewsDetail((AppCompatActivity) getActivity(),
+                view.findViewById(R.id.news_item_imgThumb),model);
     }
 }
