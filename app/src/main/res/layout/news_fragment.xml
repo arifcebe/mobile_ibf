@@ -15,11 +15,23 @@
         android:layout_height="200dp"
         android:background="@color/colorPrimary">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="header layout"
-            android:textColor="#FFFFFF"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/news_header_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bacground_layout"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
 
     </com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
 </FrameLayout>

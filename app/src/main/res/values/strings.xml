@@ -10,4 +10,6 @@
     <string name="login">LOGIN</string>
     <string name="register">Register</string>
     <string name="about">About</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
 </resources>

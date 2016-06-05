@@ -1,6 +1,7 @@
 package id.ilmuberbagi.mobileapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import id.ilmuberbagi.mobileapp.R;
 import id.ilmuberbagi.mobileapp.model.NewsModel;
+import id.ilmuberbagi.mobileapp.view.NewsDetailActivity;
 import id.ilmuberbagi.mobileapp.viewholder.NewsViewHolder;
 
 /**
@@ -45,6 +47,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder>{
         Glide.with(context)
                 .load(model.getImg())
                 .into(holder.imgThumb);
+
+        holder.imgThumb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, NewsDetailActivity.class));
+            }
+        });
     }
 
     @Override

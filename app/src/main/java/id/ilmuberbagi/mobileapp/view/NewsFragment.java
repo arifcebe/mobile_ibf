@@ -8,8 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ public class NewsFragment extends Fragment {
     RecyclerView recyclerView;
     @BindView(R.id.news_recyclerview_header)
     RecyclerViewHeader recyclerViewHeader;
+    @BindView(R.id.news_header_image)
+    ImageView imgHeader;
 
     private NewsAdapter adapter;
     private List<NewsModel> list = new ArrayList<NewsModel>();
@@ -43,6 +47,10 @@ public class NewsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         recyclerViewHeader.attachTo(recyclerView);
+
+        Glide.with(this)
+                .load("https://2.bp.blogspot.com/-t9YAB7aQXWk/Vt7soe8evDI/AAAAAAAAADk/sN6Jhy9WtkA/s320/ardi-kick-andy-285x300.jpg")
+                .into(imgHeader);
 
         for (int i = 0;i < 15;i++){
             NewsModel model = new NewsModel();
